@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Heart, RotateCcw, Target, Lightbulb, CheckCircle, Star } from 'lucide-react';
 
 interface HierarchyBuilderProps {
@@ -74,7 +74,7 @@ const conditionScenarios: ConditionScenario[] = [
   }
 ];
 
-export default function HierarchyBuilder({ themeColor, isPresentation }: HierarchyBuilderProps) {
+export default function HierarchyBuilder({ themeColor, isPresentation: _isPresentation }: HierarchyBuilderProps) {
   const [phase, setPhase] = useState<Phase>('pyramid');
   const [userPlacements, setUserPlacements] = useState<Record<string, number>>({});
   const [showPyramidResults, setShowPyramidResults] = useState(false);
@@ -156,7 +156,6 @@ export default function HierarchyBuilder({ themeColor, isPresentation }: Hierarc
           {/* Pyramid Visual */}
           <div className="flex flex-col items-center gap-1">
             {[...levelNames].reverse().map((level, reverseIndex) => {
-              const index = 4 - reverseIndex;
               const widthPercent = 40 + (reverseIndex * 15);
               return (
                 <div

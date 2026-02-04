@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Shield, RotateCcw, Brain, Eye, Lock, CheckCircle, Lightbulb } from 'lucide-react';
+import { useState } from 'react';
+import { Shield, RotateCcw, Brain, Eye, CheckCircle, Lightbulb } from 'lucide-react';
 
 interface DefenceMechanismSimulatorProps {
   themeColor: string;
@@ -89,7 +89,7 @@ const psychosexualStages = [
   { name: 'Genital', age: 'Puberty+', focus: 'Genitals', fixation: 'Mature sexuality', emoji: '👨' },
 ];
 
-export default function DefenceMechanismSimulator({ themeColor, isPresentation }: DefenceMechanismSimulatorProps) {
+export default function DefenceMechanismSimulator({ themeColor, isPresentation: _isPresentation }: DefenceMechanismSimulatorProps) {
   const [phase, setPhase] = useState<Phase>('identify');
   const [currentScenario, setCurrentScenario] = useState(0);
   const [userAnswers, setUserAnswers] = useState<string[]>([]);

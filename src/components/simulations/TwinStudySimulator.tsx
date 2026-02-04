@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Dna, RotateCcw, Calculator, Users, BarChart3, Lightbulb } from 'lucide-react';
+import { useState } from 'react';
+import { Dna, RotateCcw, Calculator, Users, Lightbulb } from 'lucide-react';
 
 interface TwinStudySimulatorProps {
   themeColor: string;
@@ -22,7 +22,7 @@ const realWorldExamples = [
   { trait: 'Height', mz: 95, dz: 55, interpretation: 'Very high genetic influence' },
 ];
 
-export default function TwinStudySimulator({ themeColor, isPresentation }: TwinStudySimulatorProps) {
+export default function TwinStudySimulator({ themeColor, isPresentation: _isPresentation }: TwinStudySimulatorProps) {
   const [phase, setPhase] = useState<Phase>('intro');
   const [mzPairs, setMzPairs] = useState<TwinPair[]>([
     { id: 1, type: 'MZ', twin1HasTrait: true, twin2HasTrait: true },
@@ -38,7 +38,7 @@ export default function TwinStudySimulator({ themeColor, isPresentation }: TwinS
     { id: 4, type: 'DZ', twin1HasTrait: true, twin2HasTrait: false },
     { id: 5, type: 'DZ', twin1HasTrait: true, twin2HasTrait: true },
   ]);
-  const [showResults, setShowResults] = useState(false);
+  const [_showResults, setShowResults] = useState(false);
 
   const toggleTwin = (type: 'MZ' | 'DZ', pairId: number, twinNum: 1 | 2) => {
     const setter = type === 'MZ' ? setMzPairs : setDzPairs;
@@ -76,8 +76,6 @@ export default function TwinStudySimulator({ themeColor, isPresentation }: TwinS
     setPhase('intro');
     setShowResults(false);
   };
-
-  const textSize = isPresentation ? 'text-lg' : 'text-base';
 
   return (
     <div className="w-full max-w-4xl mx-auto">

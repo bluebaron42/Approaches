@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { GitCompare, RotateCcw, CheckCircle, Lightbulb, ThumbsUp, ThumbsDown } from 'lucide-react';
 
 interface ApproachDebateSimulatorProps {
@@ -7,12 +7,6 @@ interface ApproachDebateSimulatorProps {
 }
 
 type Phase = 'intro' | 'explain' | 'match' | 'debate' | 'results';
-
-interface ApproachExplanation {
-  approach: string;
-  color: string;
-  explanation: string;
-}
 
 const behaviourScenarios = [
   {
@@ -86,7 +80,7 @@ const debateQuestions: DebateQuestion[] = [
   }
 ];
 
-export default function ApproachDebateSimulator({ themeColor, isPresentation }: ApproachDebateSimulatorProps) {
+export default function ApproachDebateSimulator({ themeColor, isPresentation: _isPresentation }: ApproachDebateSimulatorProps) {
   const [phase, setPhase] = useState<Phase>('intro');
   const [currentBehaviour, setCurrentBehaviour] = useState(0);
   const [userMatches, setUserMatches] = useState<Record<string, string>>({});

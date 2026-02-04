@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { ThumbsUp, ThumbsDown, Scale, ChevronDown } from 'lucide-react';
 
 interface EvidenceItem {

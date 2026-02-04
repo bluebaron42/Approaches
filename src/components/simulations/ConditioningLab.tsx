@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useCallback } from 'react';
-import { Play, RotateCcw, Bell, Cookie, Zap, Mouse, BarChart3 } from 'lucide-react';
+import { useState, useEffect, useCallback } from 'react';
+import { RotateCcw, Bell, Cookie, Zap, Mouse, BarChart3 } from 'lucide-react';
 
 interface ConditioningLabProps {
   themeColor: string;
@@ -9,7 +9,7 @@ interface ConditioningLabProps {
 type LabMode = 'menu' | 'classical' | 'operant' | 'schedules';
 type ClassicalPhase = 'before' | 'during' | 'after' | 'extinction';
 
-export default function ConditioningLab({ themeColor, isPresentation }: ConditioningLabProps) {
+export default function ConditioningLab({ themeColor, isPresentation: _isPresentation }: ConditioningLabProps) {
   const [mode, setMode] = useState<LabMode>('menu');
   
   // Classical conditioning state
@@ -32,8 +32,6 @@ export default function ConditioningLab({ themeColor, isPresentation }: Conditio
   const [scheduleRewards, setScheduleRewards] = useState(0);
   const [intervalTimer, setIntervalTimer] = useState(0);
   const [canReward, setCanReward] = useState(true);
-
-  const textSize = isPresentation ? 'text-lg' : 'text-base';
 
   // Classical conditioning logic
   const ringBell = () => {

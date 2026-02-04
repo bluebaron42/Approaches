@@ -14,6 +14,7 @@ interface UnderstandingCheckQuestion {
 interface UnderstandingCheckProps {
   questions: UnderstandingCheckQuestion[];
   themeColor: string;
+  isPresentation?: boolean;
 }
 
 // Shuffle function that returns shuffled array with mapping to original indices

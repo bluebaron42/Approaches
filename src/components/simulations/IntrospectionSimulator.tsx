@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { Play, RotateCcw, Eye, Clock, CheckCircle, AlertTriangle } from 'lucide-react';
 
 interface IntrospectionSimulatorProps {

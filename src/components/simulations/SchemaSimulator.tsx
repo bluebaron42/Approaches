@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Brain, RotateCcw, CheckCircle, XCircle, Eye, Lightbulb } from 'lucide-react';
 
 interface SchemaSimulatorProps {
@@ -45,7 +45,7 @@ const memoryStory = {
   ]
 };
 
-export default function SchemaSimulator({ themeColor, isPresentation }: SchemaSimulatorProps) {
+export default function SchemaSimulator({ themeColor, isPresentation: _isPresentation }: SchemaSimulatorProps) {
   const [phase, setPhase] = useState<Phase>('build');
   const [userClassifications, setUserClassifications] = useState<Record<string, boolean>>({});
   const [showSchemaFeedback, setShowSchemaFeedback] = useState(false);
@@ -79,8 +79,6 @@ export default function SchemaSimulator({ themeColor, isPresentation }: SchemaSi
     setHasReadStory(false);
     setShowStory(true);
   };
-
-  const textSize = isPresentation ? 'text-lg' : 'text-base';
 
   return (
     <div className="w-full max-w-4xl mx-auto">

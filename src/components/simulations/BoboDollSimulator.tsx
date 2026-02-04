@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Play, RotateCcw, Eye, Users, Zap, Target } from 'lucide-react';
 
 interface BoboDollSimulatorProps {
@@ -16,7 +16,7 @@ interface ARRMFactors {
   motivation: number;
 }
 
-export default function BoboDollSimulator({ themeColor, isPresentation }: BoboDollSimulatorProps) {
+export default function BoboDollSimulator({ themeColor, isPresentation: _isPresentation }: BoboDollSimulatorProps) {
   const [phase, setPhase] = useState<Phase>('setup');
   const [modelType, setModelType] = useState<ModelType>('aggressive');
   const [arrm, setArrm] = useState<ARRMFactors>({
@@ -25,7 +25,7 @@ export default function BoboDollSimulator({ themeColor, isPresentation }: BoboDo
     reproduction: 75,
     motivation: 75
   });
-  const [showResults, setShowResults] = useState(false);
+  const [_showResults, setShowResults] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
 
   const calculateImitation = () => {
@@ -50,7 +50,6 @@ export default function BoboDollSimulator({ themeColor, isPresentation }: BoboDo
     setShowResults(false);
   };
 
-  const textSize = isPresentation ? 'text-lg' : 'text-base';
   const imitationRate = calculateImitation();
 
   return (
